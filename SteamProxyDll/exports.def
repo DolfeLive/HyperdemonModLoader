@@ -1,0 +1,10 @@
+EXPORTS
+SteamAPI_Init
+SteamAPI_IsSteamRunning
+SteamAPI_GetHSteamUser
+SteamAPI_GetHSteamPipe
+SteamInternal_ContextInit
+SteamInternal_CreateInterface
+SteamAPI_Shutdown
+SteamAPI_RunCallbacks
+CallCustomLog
