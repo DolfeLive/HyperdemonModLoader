@@ -115,7 +115,7 @@ void* SteamProxy::SteamInternal_CreateInterface(const char* version) {
 
 void SteamProxy::SteamAPI_Shutdown() {
     Logger::LogInfo(">>> INTERCEPTED: SteamAPI_Shutdown called!");
-
+    
     if (s_hOriginalDll) {
         auto originalFunc = (void(*)())GetProcAddress(s_hOriginalDll, "SteamAPI_Shutdown");
         if (originalFunc) {

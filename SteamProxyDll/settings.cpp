@@ -166,6 +166,7 @@ void Settings::SetString(const std::string& key, const std::string& value) {
 void Settings::CreateDefaultSettings() {
     m_settings.clear();
 
+    SetBool("enabled", true);
     SetBool("enable_console", true);
     SetBool("enable_file_logging", true);
     SetBool("detailed_logging", false);
