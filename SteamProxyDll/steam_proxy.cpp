@@ -14,7 +14,7 @@ HMODULE SteamProxy::GetOriginalDll() {
 }
 
 bool SteamProxy::SteamAPI_Init() {
-    Logger::LogInfo(">>> INTERCEPTED: SteamAPI_Init called!");
+    Logger::LogInfo(">>> SteamAPI_Init called!");
 
     if (s_hOriginalDll) {
         auto originalFunc = (bool(*)())GetProcAddress(s_hOriginalDll, "SteamAPI_Init");
@@ -46,7 +46,7 @@ bool SteamProxy::SteamAPI_IsSteamRunning() {
 }
 
 int SteamProxy::SteamAPI_GetHSteamUser() {
-    Logger::LogInfo(">>> INTERCEPTED: SteamAPI_GetHSteamUser called!");
+    Logger::LogInfo(">>> SteamAPI_GetHSteamUser called!");
 
     if (s_hOriginalDll) {
         auto originalFunc = (int(*)())GetProcAddress(s_hOriginalDll, "SteamAPI_GetHSteamUser");
@@ -62,7 +62,7 @@ int SteamProxy::SteamAPI_GetHSteamUser() {
 }
 
 int SteamProxy::SteamAPI_GetHSteamPipe() {
-    Logger::LogInfo(">>> INTERCEPTED: SteamAPI_GetHSteamPipe called!");
+    Logger::LogInfo(">>> SteamAPI_GetHSteamPipe called!");
 
     if (s_hOriginalDll) {
         auto originalFunc = (int(*)())GetProcAddress(s_hOriginalDll, "SteamAPI_GetHSteamPipe");
@@ -78,7 +78,7 @@ int SteamProxy::SteamAPI_GetHSteamPipe() {
 }
 
 void* SteamProxy::SteamInternal_ContextInit(void* ctx) {
-    Logger::LogInfo(">>> INTERCEPTED: SteamInternal_ContextInit called!");
+    Logger::LogInfo(">>> SteamInternal_ContextInit called!");
 
     if (s_hOriginalDll) {
         using Fn = void* (__cdecl*)(void*);
@@ -95,7 +95,7 @@ void* SteamProxy::SteamInternal_ContextInit(void* ctx) {
 }
 
 void* SteamProxy::SteamInternal_CreateInterface(const char* version) {
-    Logger::LogInfo(">>> INTERCEPTED: SteamInternal_CreateInterface called!");
+    Logger::LogInfo(">>> SteamInternal_CreateInterface called!");
     if (version) {
         Logger::LogDebug(">>> Interface version: " + std::string(version));
     }
@@ -114,7 +114,7 @@ void* SteamProxy::SteamInternal_CreateInterface(const char* version) {
 }
 
 void SteamProxy::SteamAPI_Shutdown() {
-    Logger::LogInfo(">>> INTERCEPTED: SteamAPI_Shutdown called!");
+    Logger::LogInfo(">>> SteamAPI_Shutdown called!");
     
     if (s_hOriginalDll) {
         auto originalFunc = (void(*)())GetProcAddress(s_hOriginalDll, "SteamAPI_Shutdown");
